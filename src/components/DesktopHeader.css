@@ -1,0 +1,47 @@
+.desktop-header {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top: 1em;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 5em;
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+}
+
+.desktop-header--other {
+    background-color: var(--blue-400);
+    top: 0;
+}
+
+.desktop-header__logo {
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.desktop-header__nav .list{
+    display: flex;
+    gap: 1em;
+    font-size: 1.25em;
+}
+
+.desktop-header__nav .list__item {
+    cursor: pointer;
+    font-size: 1.25em;
+}
+
+.desktop-header__nav .list__item a {
+    color: #fff;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 414px), screen and (max-height: 414px) and (orientation: landscape) {
+    .desktop-header {
+        display: none;
+    }
+}

@@ -1,0 +1,98 @@
+.mobile-header {
+    display: none;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    color: var(--blue-400);
+}
+
+.main {
+    min-height: 100vh;
+}
+
+.footer {
+    padding: 5em 15em;
+    background-color: var(--blue-500);
+    color: #fff;
+    position: relative;
+    display: flex;
+    gap: 10em;
+}
+
+.footer__title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+.footer .logo {
+    font-size: 1.25em;
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    margin-bottom: 1em;
+}
+
+.footer__description {
+    margin: 0.5em 0;
+    text-align: justify;
+    text-justify: distribute;
+}
+
+.logo__text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1em;
+}
+
+.logo__icon {
+    font-size: 1.25em;
+}
+
+.footer__section .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.25em 0;
+}
+
+.footer__copyright {
+    width: 100%;
+    position: absolute;
+    margin-top: 1em;
+    bottom: 1em;
+    left: 0;
+    text-align: center;
+    z-index: 1;
+    color: #fff;
+    font-size: 0.8em;
+}
+
+@media screen and (max-width: 414px) {
+    .footer {
+        padding: 5em;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .footer__description {
+        font-size: 0.8em;
+    }
+
+    .list__item {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-height: 414px) and (orientation: landscape) {
+    .footer {
+        padding: 10em;
+        flex-direction: column;
+    }
+}

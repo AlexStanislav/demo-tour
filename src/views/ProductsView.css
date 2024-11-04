@@ -1,0 +1,140 @@
+.products {
+    width: 90%;
+    margin: auto;
+    margin-top: 70px;
+    display: flex;
+    flex-flow: row;
+    gap: 2em;
+}
+
+.products__filters {
+    width: 15vw;
+}
+
+.products__search {
+    margin-bottom: 1em;
+}
+
+.products__accordion .list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    color: var(--gray-600);
+}
+
+.products__accordion .p-accordion-header-text {
+    color: var(--blue-600);
+    font-weight: 700;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em;
+}
+
+.products__accordion .list .list__item {
+    margin-bottom: 0.5em;
+    margin-left: 0.5em;
+}
+
+.products__search .p-inputgroup-addon {
+    background-color: var(--blue-300);
+    border: 0;
+    color: #fff;
+}
+
+.products__accordion .p-accordion-header .p-accordion-header-link {
+    background-color: transparent;
+    border: none;
+}
+
+.products__accordion .p-accordion-content {
+    border: 0;
+    padding: 0 1em;
+}
+
+.products__accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
+    color: var(--blue-300);
+}
+
+.products__price{
+    margin-bottom: 1em;
+}
+
+.products__price .p-inputgroup-addon {
+    background-color: var(--blue-300);
+    border: 0;
+    color: #fff;
+}
+
+.products__price-button{
+    width: 100%;
+    margin-top: 1em;
+}
+
+.products__list {
+    width: 85vw;
+    display: flex;
+    flex-flow: column;
+}
+
+.products__header {
+    width: 100%;
+    padding: 1em;
+    margin: 0.5em auto;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 1em;
+    justify-content: space-between;
+    color: var(--blue-400);
+    background-color: var(--blue-100);
+}
+
+.products__list-controls {
+    display: flex;
+    flex-flow: row;
+    gap: 1em;
+    justify-content: center;
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+.products__wrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5em;
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 414px) and (orientation: portrait) {
+    .products {
+        width: 100%;
+        margin: auto;
+        margin-top: 70px;
+        display: flex;
+        flex-flow: column;
+    }
+
+    .products__filters {
+        width: 90%;
+        margin: auto;
+    }
+    
+    .products__list {
+        width: 100%;
+        margin: auto;
+    }
+
+    .products__wrapper {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+        min-height: 100vh;
+    }
+}

@@ -1,0 +1,53 @@
+.desktop-home-form {
+    background: #fff;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
+}
+
+.desktop-home-form .p-inputgroup-addon {
+    background-color: var(--blue-400);
+    border: 0;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.desktop-home-form .p-inputtext {
+    background-color: transparent;
+    border: 0;
+    color: var(--blue-400);
+    font-weight: 700;
+}
+
+.desktop-home-form .p-inputtext:focus {
+    box-shadow: none;
+}
+
+.desktop-home-form .p-inputtext::placeholder {
+    color: var(--blue-400);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.25em;
+    opacity: 1;
+}
+
+.desktop-home-form .p-inputnumber .p-inputnumber-button {
+    background-color: var(--blue-400);
+    border: 0;
+    color: #fff;
+}
+
+.desktop-home-form__button {
+    background-color: var(--blue-400);
+    border: 0;
+    color: #fff;
+    font-size: 1.25em;
+    padding: 0.5em 1em;
+    margin-left: 1em;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 414px) {
+    .desktop-home-form {
+        display: none;
+    }
+}

@@ -1,0 +1,40 @@
+.home__mobile-form {
+    display: none;
+}
+
+.home__mobile-form .p-inputtext {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    font-weight: 700;
+}
+
+.home__mobile-form .p-inputtext::placeholder {
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.25em;
+    opacity: 1;
+}
+
+.home__mobile-form .p-inputgroup-addon {
+    background-color: #fff;
+    border: 0;
+    color: var(--blue-300);
+}
+
+.home__mobile-form .p-inputnumber .p-inputnumber-button {
+    background-color: #fff;
+    border: 0;
+    color: var(--blue-300);
+}
+
+@media screen and (max-width: 414px) {
+    .home__mobile-form {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        margin: 0 auto;
+    }
+}
