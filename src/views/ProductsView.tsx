@@ -9,6 +9,8 @@ import RadioInput from "../components/RadioInput";
 import { Slider } from "primereact/slider";
 import { InputNumber } from "primereact/inputnumber";
 import { Button } from "primereact/button";
+import { Skeleton } from "primereact/skeleton";
+import { Dropdown } from "primereact/dropdown";
 import ProductCardList from "../components/ProductCardList";
 
 function getCountries(
@@ -47,7 +49,59 @@ function ProductsView() {
 
   const [productDisplayType, setProductDisplayType] = useState("grid");
 
+  const [sortOrder, setSortOrder] = useState<
+    | "asc_price"
+    | "desc_price"
+    | "asc_name"
+    | "desc_name"
+    | "asc_rating"
+    | "desc_rating"
+  >("asc_price");
+
+  const sortOptions = [
+    {
+      label: "Ascending: Price",
+      value: "asc_price",
+    },
+    {
+      label: "Descending: Price",
+      value: "desc_price",
+    },
+    {
+      label: "Ascending: Rating",
+      value: "asc_rating",
+    },
+    {
+      label: "Descending: Rating",
+      value: "desc_rating",
+    },
+    {
+      label: "Ascending: Name",
+      value: "asc_name",
+    },
+    {
+      label: "Descending: Name",
+      value: "desc_name",
+    },
+  ];
+
   const productCountries = getCountries(products);
+
+  if (sortOrder === "asc_price") {
+    displayedProducts.sort((a, b) => a.price - b.price);
+  } else if (sortOrder === "desc_price") {
+    displayedProducts.sort((a, b) => b.price - a.price);
+  } else if (sortOrder === "asc_name") {
+    displayedProducts.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortOrder === "desc_name") {
+    displayedProducts.sort((a, b) => b.name.localeCompare(a.name));
+  } else if (sortOrder === "asc_rating") {
+    displayedProducts.sort((a, b) => a.rating - b.rating);
+  } else if (sortOrder === "desc_rating") {
+    displayedProducts.sort((a, b) => b.rating - a.rating);
+  } else if (sortOrder === "default") {
+    displayedProducts.sort((a, b) => a.name.localeCompare(b.name));
+  }
 
   const changePage = (event: { page: number }) => {
     setFirst(event.page * rows);
@@ -85,7 +139,6 @@ function ProductsView() {
     const filteredProducts = products.filter((product) =>
       searchResults.includes(product.name)
     );
-    console.log(filteredProducts);
     setDisplayedProducts(filteredProducts);
   };
 
@@ -107,7 +160,6 @@ function ProductsView() {
         product.price <= filterPrice[1]
     );
 
-    console.log(filteredProducts);
     setTotalProducts(filteredProducts.length);
     setDisplayedProducts(filteredProducts.slice(first, rows));
   };
@@ -219,11 +271,29 @@ function ProductsView() {
             Showing {first + 1} to {first + 8} of {products.length}
           </span>
           <span className="products__list-controls">
-            <i className="pi pi-list" onClick={() => setProductDisplayType("list")}></i>
-            <i className="pi pi-th-large" onClick={() => setProductDisplayType("grid")}></i>
+            <i
+              className="pi pi-list"
+              onClick={() => setProductDisplayType("list")}
+            ></i>
+            <i
+              className="pi pi-th-large"
+              onClick={() => setProductDisplayType("grid")}
+            ></i>
+            <span className="products__list-sort">
+              <Dropdown
+                options={sortOptions}
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.value)}
+              />
+            </span>
           </span>
         </header>
-        <div className="products__wrapper">
+        <div
+          className="products__wrapper"
+          style={{
+            display: `${displayedProducts.length === 0 ? "none" : "flex"}`,
+          }}
+        >
           {displayedProducts.map((product) => {
             if (productDisplayType === "grid") {
               return (
@@ -238,9 +308,19 @@ function ProductsView() {
                   key={`${product.name}${product.price}`}
                   product={product}
                 />
-              )
+              );
             }
           })}
+        </div>
+        <div
+          className="products__skeleton"
+          style={{
+            display: `${displayedProducts.length === 0 ? "flex" : "none"}`,
+          }}
+        >
+          {[...Array(8)].map((_, index) => (
+            <Skeleton key={index} width="350px" height="530px"></Skeleton>
+          ))}
         </div>
         <Paginator
           first={first}

@@ -9,6 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./views/HomeView";
 import ProductsView from "./views/ProductsView";
 import DesktopHeader from "./components/DesktopHeader";
+import ContactView from "./views/ContactView";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductsView />} />
+          <Route path="/contact" element={<ContactView />} />
         </Routes>
       </main>
       <footer className="footer">

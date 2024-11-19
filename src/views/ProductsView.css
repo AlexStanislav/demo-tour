@@ -94,11 +94,13 @@
     flex-flow: row;
     gap: 1em;
     justify-content: center;
+    align-items: center;
     margin-right: 1em;
     cursor: pointer;
 }
 
-.products__wrapper {
+.products__wrapper,
+.products__skeleton {
     width: 100%;
     display: flex;
     flex-flow: row;

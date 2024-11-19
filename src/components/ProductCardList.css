@@ -19,22 +19,26 @@
 }
 
 .product-card-list__content {
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    position: relative;
     padding: 0.25em;
 }
 
 .product-card-list__title {
+    width: 100%;
     font-size: 1.5em;
     color: var(--blue-400);
     font-family: 'Dancing Script', cursive;
-    margin-bottom: 0.15em;
+    margin: 0 0 0.15em 0;
     position: relative;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     gap: 1em;
 }
@@ -44,13 +48,16 @@
 }
 
 .product-card-list__description {
-    font-size: 0.75em;
+    text-align: justify;
+    font-size: 0.9em;
     color: var(--gray-700);
 }
 
 
-.product-card-list .p-inputgroup {
+.product-card-list__price {
     width: 250px;
+    position: absolute;
+    bottom: 0;
 }
 
 .product-card-list .p-inputgroup-addon {

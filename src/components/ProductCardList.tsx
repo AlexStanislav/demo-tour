@@ -5,18 +5,17 @@ import { Button } from "primereact/button";
 import { InputNumber } from "primereact/inputnumber";
 
 function ProductCardList({ product }: { product: ProductType }) {
-    console.log(product);
     return (
         <div className="product-card-list">
             <img className="product-card-list__image" src={`${product.image}${product.price}`} alt={product.name} />
             <div className="product-card-list__content">
                 <h3 className="product-card-list__title">
                     {product.name}
-                    <img className="product-card-list__flag" src={`https://flagcdn.com/24x18/${product.country_code.toLowerCase()}.png`} alt="" />
+                    <img className="product-card-list__flag" src={`https://flagcdn.com/w40/${product.country_code.toLowerCase()}.png`} alt="" />
                 </h3>
                 <StarRating rating={product.rating} />
                 <p className="product-card-list__description">{product.description}</p>
-                <div className="p-inputgroup">
+                <div className="p-inputgroup product-card-list__price">
                     <Button label="More info" icon="pi pi-info-circle" />
                     <InputNumber value={product.price} readOnly />
                     <span className="p-inputgroup-addon">$</span>
