@@ -1,0 +1,223 @@
+.product-modal {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.product-modal__dialog {
+    width: 50%;
+}
+
+.product-modal__image {
+    width: 50%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+.product-modal__content {
+    width: 50%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.product-modal__title {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0;
+    color: var(--blue-400);
+    font-family: 'Dancing Script', cursive;
+}
+
+.product-modal__description {
+    font-size: 0.9em;
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    color: var(--gray-700);
+    margin: 0.75em 0;
+}
+
+.product-modal__info {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.product-modal__list-title {
+    font-weight: 700;
+    color: var(--blue-400);
+    margin: 0;
+    text-align: center;
+}
+
+.product-modal__amenities {
+    list-style: none;
+    padding: 0;
+}
+
+.product-modal__details {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5em;
+}
+
+.product-modal__amenity,
+.product-modal__detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.9em;
+}
+
+.product-modal__amenity .svg-inline--fa,
+.product-modal__detail .svg-inline--fa {
+    width: 20px;
+    color: var(--blue-400);
+}
+
+.product-modal__footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+    gap: 1em;
+}
+
+.product-modal__price {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--blue-400);
+    margin: 0;
+}
+
+.product-modal__per{
+    font-size: 0.5em;
+    color: var(--gray-600);
+    margin: 0;
+    font-weight: 400;
+}
+
+.form {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3em;
+}
+
+.form__row{
+    margin-bottom: 1em;
+}
+
+.form__row .p-inputgroup-addon {
+    background-color: var(--blue-400);
+    color: #fff;
+}
+
+.form__textarea{
+    width: 100%;
+    height: 100px;
+    resize: none;
+    margin-bottom: 1em;
+}
+
+.form__button{
+    width: 100%;
+}
+
+.form__summary{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--blue-400);
+}
+
+.form__summary .pi{
+    color: var(--blue-400);
+    font-weight: bold;
+}
+
+.form__summary-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--gray-700);
+}
+
+.form__total{
+    color: var(--blue-400);
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.form__total-label{
+    color: var(--gray-700);
+    font-size: 0.9em;
+}
+
+@media screen and (max-width: 414px) and (orientation: portrait) {
+    .product-modal {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-modal__dialog {
+        width: 100%;
+    }
+
+    .product-modal__image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10px;
+    }
+
+    .product-modal__content {
+        width: 100%;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-height: 414px) and (orientation: landscape) {
+    .product-modal__dialog{
+        width: 80%;
+    }
+}

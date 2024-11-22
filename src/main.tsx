@@ -5,11 +5,14 @@ import "./index.css";
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";
 import "primeicons/primeicons.css";
 import App from "./App.tsx";
+import ModalProvider from "./ModalContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <ModalProvider>
+        <App />
+      </ModalProvider>
     </BrowserRouter>
   </StrictMode>
 );

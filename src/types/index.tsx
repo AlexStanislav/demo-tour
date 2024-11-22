@@ -8,6 +8,7 @@ export interface Product {
   country_code: string;
   city: string;
   image: string;
+  amenity_type: Array<string>;
 }
 
 export interface RadioInputProps {

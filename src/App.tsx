@@ -10,11 +10,14 @@ import Home from "./views/HomeView";
 import ProductsView from "./views/ProductsView";
 import DesktopHeader from "./components/DesktopHeader";
 import ContactView from "./views/ContactView";
+import ProductModal from "./ProductModal";
+import { ModalConsumer } from "./ModalContext";
 
 function App() {
+  const { isModalOpen, closeModal, data } = ModalConsumer();
+
   return (
     <PrimeReactProvider>
-      
       <MobileHeader />
       <DesktopHeader />
 
@@ -25,6 +28,9 @@ function App() {
           <Route path="/contact" element={<ContactView />} />
         </Routes>
       </main>
+
+      <ProductModal isOpen={isModalOpen} onClose={closeModal} productData={data} />
+
       <footer className="footer">
         <section className="footer__section footer__about">
           <div className="logo">
@@ -58,15 +64,15 @@ function App() {
             <li className="list__item">
               <i className="pi pi-facebook"></i>
               Facebook
-              </li>
+            </li>
             <li className="list__item">
               <i className="pi pi-twitter"></i>
               Twitter
-              </li>
+            </li>
             <li className="list__item">
               <i className="pi pi-instagram"></i>
               Instagram
-              </li>
+            </li>
           </ul>
         </section>
 
@@ -76,15 +82,15 @@ function App() {
             <li className="list__item">
               <i className="pi pi-envelope"></i>
               Email
-              </li>
+            </li>
             <li className="list__item">
               <i className="pi pi-phone"></i>
               Phone
-              </li>
+            </li>
             <li className="list__item">
               <i className="pi pi-map-marker"></i>
               Location
-              </li>
+            </li>
           </ul>
         </section>
 

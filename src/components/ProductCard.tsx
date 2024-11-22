@@ -3,8 +3,14 @@ import "./ProductCard.css";
 import StarRating from "./StarRating";
 import { Button } from "primereact/button";
 import { Product as ProductType } from "../types";
+import { ModalConsumer } from "../ModalContext";
 
 function ProductCard({ product }: { product: ProductType }) {
+  const { openModal } = ModalConsumer();
+
+  function handleOpenModal() {
+    openModal(product);
+  }
   return (
     <div className="product-card">
       <div className="product-card__image">
@@ -24,14 +30,16 @@ function ProductCard({ product }: { product: ProductType }) {
         <StarRating rating={product.rating} />
       </header>
       <main className="product-card__main">
-        <p className="product-card__description">{product.description.slice(0, 80)}...</p>
+        <p className="product-card__description">
+          {product.description.slice(0, 80)}...
+        </p>
       </main>
       <footer className="product-card__footer">
         <div className="p-inputgroup">
-          <InputNumber value={product.price} readOnly/>
           <span className="p-inputgroup-addon">$</span>
+          <InputNumber value={product.price} readOnly />
         </div>
-        <Button label="More info" icon="pi pi-info-circle" />
+        <Button label="More info" icon="pi pi-info-circle" onClick={handleOpenModal} />
       </footer>
     </div>
   );

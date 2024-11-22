@@ -26,7 +26,6 @@
 }
 
 .recommended-product__image {
-    width: 100%;
     object-fit: cover;
     object-position: center;
     position: absolute;

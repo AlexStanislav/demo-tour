@@ -2,8 +2,14 @@ import "./RecommendedProduct.css";
 import StarRating from "./StarRating";
 import { Button } from "primereact/button";
 import { Product as ProductType } from "../types";
+import { ModalConsumer } from "../ModalContext";
 
 function RecommendedProduct({ product }: { product: ProductType }) {
+  const { openModal } = ModalConsumer();
+
+  function handleOpenModal() {
+    openModal(product);
+  }
   return (
     <div className="recommended-product" key={product.name}>
       <img
@@ -17,7 +23,7 @@ function RecommendedProduct({ product }: { product: ProductType }) {
         <p className="recommended-product__description">
           {product.description}
         </p>
-        <Button label="More info" icon="pi pi-info-circle" />
+        <Button label="More info" icon="pi pi-info-circle" onClick={handleOpenModal} />
       </footer>
     </div>
   );
