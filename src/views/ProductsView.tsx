@@ -12,6 +12,7 @@ import { Button } from "primereact/button";
 import { Skeleton } from "primereact/skeleton";
 import { Dropdown } from "primereact/dropdown";
 import ProductCardList from "../components/ProductCardList";
+import { useLocation } from "react-router-dom";
 
 function getCountries(
   products: ProductType[]
@@ -163,6 +164,22 @@ function ProductsView() {
     setTotalProducts(filteredProducts.length);
     setDisplayedProducts(filteredProducts.slice(first, rows));
   };
+
+  const locationState = useLocation().state as { searchValue: string } | null;
+
+  useEffect(() => {
+    if (locationState) {
+      const searchValue = locationState.searchValue.toLowerCase();
+      const filteredProducts = products.filter((product) =>
+        product.name.toLowerCase().includes(searchValue)
+      );
+
+      if (filteredProducts.length > 0) {
+        setDisplayedProducts(filteredProducts);
+        setSearchValue(searchValue);
+      }
+    }
+  }, [locationState, products]);
 
   return (
     <section className="products">

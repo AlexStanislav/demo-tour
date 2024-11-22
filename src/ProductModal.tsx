@@ -4,7 +4,7 @@ import "./ProductModal.css";
 import StarRating from "./components/StarRating";
 import _ from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   faHotel,
   faRoute,
@@ -28,6 +28,7 @@ import { Calendar } from "primereact/calendar";
 import { InputMask } from "primereact/inputmask";
 import { InputNumber } from "primereact/inputnumber";
 import { InputTextarea } from "primereact/inputtextarea";
+import { useLocation } from "react-router-dom";
 
 interface ModalProps {
   isOpen: boolean;
@@ -76,6 +77,22 @@ function ProductModal({ isOpen, onClose, productData }: ModalProps) {
     }
     return 0;
   };
+
+  const checkInState = useLocation().state as { checkIn: Date | null };
+  const checkOutState = useLocation().state as { checkOut: Date | null };
+  const guestsState = useLocation().state as { guests: number | null };
+
+  useEffect(() => {
+    if (checkInState) {
+      setCheckIn(checkInState.checkIn);
+    }
+    if (checkOutState) {
+      setCheckOut(checkOutState.checkOut);
+    }
+    if (guestsState) {
+      setGuests(guestsState.guests);
+    }
+  }, [checkInState, checkOutState, guestsState]);
 
   return (
     <Dialog
@@ -225,8 +242,7 @@ function ProductModal({ isOpen, onClose, productData }: ModalProps) {
               </p>
             </div>
             <p className="form__total">
-              <span className="form__total-label">Total</span>
-              $
+              <span className="form__total-label">Total</span>$
               {checkIn && checkOut && guests
                 ? calculateTotal(checkIn, checkOut, guests)
                 : 0}

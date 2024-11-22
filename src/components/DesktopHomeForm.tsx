@@ -12,6 +12,7 @@ import {
 import { Calendar } from "primereact/calendar";
 import { InputNumber } from "primereact/inputnumber";
 import { Button } from "primereact/button";
+import { useNavigate } from "react-router-dom";
 
 function DesktopHomeForm({ products }: { products: ProductType[] }) {
   const [searchValue, setSearchValue] = useState("");
@@ -20,6 +21,8 @@ function DesktopHomeForm({ products }: { products: ProductType[] }) {
   const [checkIn, setCheckIn] = useState<Date | null>(null);
   const [checkOut, setCheckOut] = useState<Date | null>(null);
   const [guests, setGuests] = useState<number | null>(null);
+
+  const navigate = useNavigate();
 
   const search = () => {
     const filteredProducts = products
@@ -32,6 +35,10 @@ function DesktopHomeForm({ products }: { products: ProductType[] }) {
       .filter((name) => name !== null); // Remove any null values
 
     setSearchResults(filteredProducts);
+  };
+
+  const handleNavigate = () => {
+    navigate("/products", { state: { searchValue, checkIn, checkOut, guests } });
   };
 
   return (
@@ -69,7 +76,7 @@ function DesktopHomeForm({ products }: { products: ProductType[] }) {
           <FontAwesomeIcon icon={faUser} />
         </span>
         <InputNumber placeholder="Guests" value={guests} onChange={(e) => setGuests(e.value)} showButtons min={1} />
-        <Button label="Search" className="desktop-home-form__button" icon="pi pi-search" />
+        <Button label="Search" className="desktop-home-form__button" icon="pi pi-search" onClick={handleNavigate}/>
       </div>
     </div>
   );
