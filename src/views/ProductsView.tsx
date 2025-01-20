@@ -1,6 +1,6 @@
 import "./ProductsView.css";
 import { Accordion, AccordionTab } from "primereact/accordion";
-import { AutoComplete } from "primereact/autocomplete";
+// import { AutoComplete } from "primereact/autocomplete";
 import { useEffect, useState } from "react";
 import { Product as ProductType } from "../types";
 import ProductCard from "../components/ProductCard";
@@ -36,8 +36,8 @@ function getCountries(
 
 function ProductsView() {
   const [products, setProducts] = useState<ProductType[]>([]);
-  const [searchValue, setSearchValue] = useState("");
-  const [searchResults, setSearchResults] = useState<string[]>([]);
+  // const [searchValue, setSearchValue] = useState("");
+  // const [searchResults, setSearchResults] = useState<string[]>([]);
   const [displayedProducts, setDisplayedProducts] = useState<ProductType[]>([]);
   const [totalProducts, setTotalProducts] = useState(0);
 
@@ -122,29 +122,29 @@ function ProductsView() {
       .then((data) => setProducts(data));
   }, []);
 
-  const search = () => {
-    const filteredProducts = products
-      .map((product) => {
-        if (product.name.toLowerCase().includes(searchValue.toLowerCase())) {
-          return product.name;
-        }
-        return null; // Return null instead of undefined
-      })
-      .filter((name) => name !== null); // Remove any null values
+  // const search = () => {
+  //   const filteredProducts = products
+  //     .map((product) => {
+  //       if (product.name.toLowerCase().includes(searchValue.toLowerCase())) {
+  //         return product.name;
+  //       }
+  //       return null; // Return null instead of undefined
+  //     })
+  //     .filter((name) => name !== null); // Remove any null values
 
-    setSearchResults(filteredProducts);
-    searchProducts();
-  };
+  //   setSearchResults(filteredProducts);
+  //   searchProducts();
+  // };
 
-  const searchProducts = () => {
-    const filteredProducts = products.filter((product) =>
-      searchResults.includes(product.name)
-    );
-    setDisplayedProducts(filteredProducts);
-  };
+  // const searchProducts = () => {
+  //   const filteredProducts = products.filter((product) =>
+  //     searchResults.includes(product.name)
+  //   );
+  //   setDisplayedProducts(filteredProducts);
+  // };
 
   const resetSearch = () => {
-    setSearchValue("");
+    // setSearchValue("");
     setDisplayedProducts(products.slice(first, rows));
     setFilterCountry("All");
     setFilterRating("All");
@@ -176,7 +176,7 @@ function ProductsView() {
 
       if (filteredProducts.length > 0) {
         setDisplayedProducts(filteredProducts);
-        setSearchValue(searchValue);
+        // setSearchValue(searchValue);
       }
     }
   }, [locationState, products]);
@@ -185,7 +185,7 @@ function ProductsView() {
     <section className="products">
       <nav className="products__filters">
         <h2 className="title products__filters-title">Filters</h2>
-        <div className="products__search p-inputgroup">
+        {/* <div className="products__search p-inputgroup">
           <span className="p-inputgroup-addon">
             <i className="pi pi-search" />
           </span>
@@ -196,7 +196,7 @@ function ProductsView() {
             completeMethod={search}
             onClear={resetSearch}
           ></AutoComplete>
-        </div>
+        </div> */}
         <Accordion
           className="products__accordion"
           multiple
