@@ -122,7 +122,7 @@ function ProductBooking({ price }: { price: number }) {
             : 0}
         </p>
 
-        <Button label="Book Now" icon="pi pi-check" className="form__button" />
+        <Button label="Book Now" icon="pi pi-check" className="form__button" onClick={(e) => {e.preventDefault();}} />
       </form>
       
     </div>
